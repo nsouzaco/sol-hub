@@ -1,0 +1,19 @@
+{
+    "name": "Prai",
+    "symbol": "",
+    "image": "2.png",
+    "properties": {
+      "files": [
+        {
+          "uri": "2.png",
+          "type": "image/png"
+        }
+      ],
+      "creators": [
+        {
+          "address": "DdL4djgJWuu7aAs67NES1ZRbELP1xfDvMusngckyDM8S",
+          "share": 100
+        }
+      ]
+    }
+  }
