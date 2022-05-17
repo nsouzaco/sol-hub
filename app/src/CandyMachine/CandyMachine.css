@@ -1,6 +1,17 @@
 .machine-container {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
+  display: grid;
+  grid-template-columns: 200px 200px ;
+  grid-gap: 10px;
+  grid-template-rows: auto;
+  margin: 0 auto;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
 }
 
 .gif-container {

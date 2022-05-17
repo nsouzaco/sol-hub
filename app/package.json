@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@audius/fetch-nft": "^0.1.7",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@metaplex-foundation/mpl-core": "^0.0.5",
     "@metaplex-foundation/mpl-token-metadata": "^1.2.5",
     "@metaplex/js": "^4.7.0",

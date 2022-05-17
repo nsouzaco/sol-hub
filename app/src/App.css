@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
 .App {
   height: 100vh;
-  background-color: rgb(20, 20, 20);
+  /* color: rgb(20, 20, 20); */
   overflow: scroll;
   text-align: center;
   overflow: hidden;
+  /* background: linear-gradient(300deg, #f9c3f5 60%, #9bdaff 100%); */
+  background: linear-gradient(300deg, #f9dea1 60%, #9bdaff 100%);
+  /* animation: bg-fade-1 6s linear infinite; */
+  background-size: 500% 500%;
+  animation: gradient-animation 15s ease infinite;
 }
+
+
 
 .container {
   height: 100%;
@@ -12,7 +21,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 0 30px 0 30px;
-  color: white;
+  color: black;
   position: relative;
   /* background-color: #35aee2; */
 }
@@ -30,8 +39,9 @@
 
 .header {
   margin: 0;
-  font-size: 50px;
+  font-size: 80px;
   font-weight: bold;
+  font-family: 'Bungee Shade', cursive;
 }
 
 .sub-text {
@@ -69,6 +79,13 @@
   background-size: 200% 200%;
   animation: gradient-animation 4s ease infinite;
   margin-left: 10px;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.check-button {
+  width: 30%;
+  margin: 10px auto;
 }
 
 .footer-container {
@@ -108,6 +125,10 @@
 
 .connected-container button {
   height: 50px;
+}
+
+.member-message {
+  font-size: 30px;
 }
 
 /* KeyFrames */

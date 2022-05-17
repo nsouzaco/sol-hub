@@ -25,7 +25,9 @@ const opts = {
 const CandyMachine = ({ walletAddress }) => {
 
   const [candyMachine, setCandyMachine] = useState(null);
-  
+  const [mintText, setMintText] = useState("Mint");
+  const [mintStarted, setMintStarted] = useState(false);
+
   useEffect(() => {
     getCandyMachineState();
   }, []);
@@ -173,7 +175,7 @@ const CandyMachine = ({ walletAddress }) => {
 
   const mintToken = async () => {
     const mint = web3.Keypair.generate();
-
+    
     const userTokenAccountAddress = (
       await getAtaForMint(mint.publicKey, walletAddress.publicKey)
     )[0];
@@ -186,6 +188,8 @@ const CandyMachine = ({ walletAddress }) => {
     const remainingAccounts = [];
     const signers = [mint];
     const cleanupInstructions = [];
+    setMintText("Minting...")
+    setMintStarted(true);
     const instructions = [
       web3.SystemProgram.createAccount({
         fromPubkey: walletAddress.publicKey,
@@ -385,12 +389,17 @@ const CandyMachine = ({ walletAddress }) => {
   return (
     // Only show this if machineStats is available
     candyMachine && (
-      <div className="machine-container">
-        <p>{`Drop Date: ${candyMachine.state.goLiveDateTimeString}`}</p>
-        <p>{`Items Minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
-        <button className="cta-button mint-button" onClick={mintToken}>
-            Mint NFT
-        </button>
+      <div>
+        {!mintStarted && (   
+          <div>
+            <div className="machine-container">
+              <p className="sub-text">Price: 0.1 SOL</p>
+              <p className="sub-text">{`Items Minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
+            </div>
+            <button className="cta-button mint-button" onClick={mintToken}>{mintText}</button>
+          </div>
+        )}
+        {mintStarted && <p className="sub-text">Refresh the page and check your wallet in a couple of seconds</p>}
       </div>
     )
   );
